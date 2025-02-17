@@ -4,7 +4,7 @@ import {
         IonContent, 
         IonHeader,
         IonIcon, 
-        IonLabel,  
+        IonLabel,
         IonMenuButton, 
         IonPage,
         IonRouterOutlet, 
