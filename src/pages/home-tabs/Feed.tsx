@@ -1,4 +1,6 @@
 import { 
+  IonAlert,
+  IonButton,
   IonButtons, 
   IonContent, 
   IonHeader, 
@@ -21,6 +23,14 @@ const Feed: React.FC = () => {
       </IonHeader>
 
       <IonContent fullscreen style={{ backgroundColor: '#f4f4f4' }}>
+      <IonButton id="present-alert">Click Me</IonButton>
+      <IonAlert
+        trigger="present-alert"
+        header="A Short Title Is Best"
+        subHeader="A Sub Header Is Optional"
+        message="A message should be a short, complete sentence."
+        buttons={['Action']}
+      ></IonAlert>
         <div
           style={{
             display: 'flex',
