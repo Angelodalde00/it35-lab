@@ -46,6 +46,11 @@ const Feed: React.FC = () => {
             <IonLabel>Reminders</IonLabel>
             <IonNote slot="end">8</IonNote>
           </IonItem>
+          <IonItem button={true}>
+            <IonIcon color="success" slot="start" icon={listCircle} size="large"></IonIcon>
+            <IonLabel>Cleaning</IonLabel>
+            <IonNote slot="end">3</IonNote>
+          </IonItem>
           
 
         <div
