@@ -21,8 +21,8 @@ const Feed: React.FC = () => {
           <IonTitle>Your Feed</IonTitle>
         </IonToolbar>
       </IonHeader>
-
-      <IonContent fullscreen style={{ backgroundColor: '#f4f4f4' }}>
+      <IonContent fullscreen style={{ backgroundColor: '#72A0C1' }}>
+      <>
       <IonButton id="present-alert">Click Me</IonButton>
       <IonAlert
         trigger="present-alert"
@@ -31,23 +31,10 @@ const Feed: React.FC = () => {
         message="A message should be a short, complete sentence."
         buttons={['Action']}
       ></IonAlert>
+    </>
         <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100%',
-            padding: '20px',
-            color: '#333', // Ensuring the text is readable
-            fontFamily: 'Arial, sans-serif', // Font for readability
-          }}
-        >
-          <h2>Welcome i love you and i miss you huhu Feed</h2>
-          <p style={{ textAlign: 'center', fontSize: '18px' }}>
-            Here you can view your personalized content and notifications.
-          </p>
           
+        >         
         </div>
       </IonContent>
     </IonPage>
