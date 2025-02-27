@@ -4,13 +4,17 @@ import {
   IonButtons, 
   IonContent, 
   IonHeader, 
+  IonIcon, 
+  IonItem, 
+  IonLabel, 
   IonMenuButton, 
+  IonNote, 
   IonPage, 
   IonTitle, 
   IonToast, 
   IonToolbar 
 } from '@ionic/react';
-import { globe } from 'ionicons/icons';
+import { globe, listCircle } from 'ionicons/icons';
 
 const Feed: React.FC = () => {
   function presentToast(arg0: string): void {
@@ -29,12 +33,21 @@ const Feed: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen style={{ backgroundColor: '#72A0C1' }}>
 
-      <>
-      <IonButton id="open-toast">Open Toast</IonButton>
-      <IonToast trigger="open-toast" message="Hi Langga I love you" duration={3000} icon={globe}></IonToast>
-    </>
+      <IonIcon color="danger" slot="start" icon={listCircle} size="large"></IonIcon>
       
-    
+      
+          <IonItem button={true}>
+            <IonIcon color="tertiary" slot="start" icon={listCircle} size="large"></IonIcon>
+            <IonLabel>Shopping</IonLabel>
+            <IonNote slot="end">15</IonNote>
+          </IonItem>
+          <IonItem button={true}>
+            <IonIcon color="warning" slot="start" icon={listCircle} size="large"></IonIcon>
+            <IonLabel>Reminders</IonLabel>
+            <IonNote slot="end">8</IonNote>
+          </IonItem>
+          
+
         <div
           
         >         
