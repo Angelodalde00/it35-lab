@@ -7,10 +7,16 @@ import {
   IonMenuButton, 
   IonPage, 
   IonTitle, 
+  IonToast, 
   IonToolbar 
 } from '@ionic/react';
+import { globe } from 'ionicons/icons';
 
 const Feed: React.FC = () => {
+  function presentToast(arg0: string): void {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -22,16 +28,13 @@ const Feed: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen style={{ backgroundColor: '#72A0C1' }}>
+
       <>
-      <IonButton id="present-alert">Click Me</IonButton>
-      <IonAlert
-        trigger="present-alert"
-        header="A Short Title Is Best"
-        subHeader="A Sub Header Is Optional"
-        message="A message should be a short, complete sentence."
-        buttons={['Action']}
-      ></IonAlert>
+      <IonButton id="open-toast">Open Toast</IonButton>
+      <IonToast trigger="open-toast" message="Hi Langga I love you" duration={3000} icon={globe}></IonToast>
     </>
+      
+    
         <div
           
         >         
