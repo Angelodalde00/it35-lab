@@ -37,7 +37,7 @@ import {
           <IonLabel>Pac-Man</IonLabel>
         </IonItem>
         <IonItem>
-          <IonLabel>Super Mario World</IonLabel>
+          <IonLabel>Frisbeeeeee</IonLabel>
         </IonItem>
       </IonList>
     </IonContent>
