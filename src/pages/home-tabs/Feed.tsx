@@ -1,23 +1,39 @@
+import React, { useState, useEffect } from 'react';
 import { 
   IonAlert,
   IonButton,
   IonButtons, 
   IonContent, 
+  IonInfiniteScroll,
+  IonInfiniteScrollContent,
   IonHeader, 
   IonIcon, 
   IonItem, 
+  
   IonLabel, 
   IonMenuButton, 
   IonNote, 
   IonPage, 
   IonTitle, 
   IonToast, 
-  IonToolbar 
+  IonToolbar, 
+  IonActionSheet
+
+
+  
 } from '@ionic/react';
 import { globe, listCircle } from 'ionicons/icons';
 
 const Feed: React.FC = () => {
   function presentToast(arg0: string): void {
+    throw new Error('Function not implemented.');
+  }
+
+  function setShowActionSheet(arg0: boolean): void {
+    throw new Error('Function not implemented.');
+  }
+
+  function handleAction(arg0: string): boolean | void | Promise<boolean | void> {
     throw new Error('Function not implemented.');
   }
 
@@ -36,11 +52,27 @@ const Feed: React.FC = () => {
       <IonIcon color="danger" slot="start" icon={listCircle} size="large"></IonIcon>
       
       
-          <IonItem button={true}>
-            <IonIcon color="tertiary" slot="start" icon={listCircle} size="large"></IonIcon>
-            <IonLabel>Shopping</IonLabel>
-            <IonNote slot="end">15</IonNote>
-          </IonItem>
+      <IonItem button id="open-action-sheet">
+  <IonIcon color="tertiary" slot="start" icon={listCircle} size="large" />
+  <IonLabel>Shopping</IonLabel>
+  <IonNote slot="end">143</IonNote>
+</IonItem>
+
+<IonActionSheet
+  trigger="open-action-sheet"
+  header="Actions"
+  buttons={[
+    {
+      text: 'Yes',
+      role: 'destructive',
+      handler: () => handleAction('delete'),
+    },
+    {
+      text: 'Maybe Later',
+      role: 'cancel',
+    },
+  ]}
+/>
           <IonItem button={true}>
             <IonIcon color="warning" slot="start" icon={listCircle} size="large"></IonIcon>
             <IonLabel>Reminders</IonLabel>

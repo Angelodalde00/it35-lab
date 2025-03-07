@@ -25,16 +25,16 @@ import {
         <IonContent color="light">
       <IonList inset={true}>
         <IonItem>
-          <IonLabel>Pokémon Yellow</IonLabel>
+          <IonLabel>MaisConYelo</IonLabel>
         </IonItem>
         <IonItem>
-          <IonLabel>Mega Man X</IonLabel>
+          <IonLabel>Drive Max</IonLabel>
         </IonItem>
         <IonItem>
-          <IonLabel>The Legend of Zelda</IonLabel>
+          <IonLabel>Mobile Legend</IonLabel>
         </IonItem>
         <IonItem>
-          <IonLabel>Pac-Man</IonLabel>
+          <IonLabel>Lola Remedios</IonLabel>
         </IonItem>
         <IonItem>
           <IonLabel>Frisbeeeeee</IonLabel>
