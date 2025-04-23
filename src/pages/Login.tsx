@@ -13,6 +13,7 @@ import {
 import { logoIonic } from 'ionicons/icons';
 import { useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
+import background from '../images/grav.jpg';
 
 const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void }> = ({ message, isOpen, onClose }) => {
   return (
@@ -24,6 +25,11 @@ const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void
       buttons={['OK']}
     />
   );
+};
+const h1Style = {
+  color: 'white',
+   '--ion-color-primary': 'violet',
+   '--custom-hover-input': 'violet',
 };
 
 const Login: React.FC = () => {
@@ -59,28 +65,25 @@ const Login: React.FC = () => {
           justifyContent: 'center',
           marginTop:'25%'
         }}>
-          <IonAvatar
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '150px',
-              height: '150px',
-              borderRadius: '50%', 
-              overflow: 'hidden' 
+           <img
+              src={background}
+              alt="background"
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'cover', 
+                zIndex: -1,  
             }}
-          >
-            <IonIcon 
-              icon={logoIonic}
-              color='primary'
-              style={{ fontSize: '120px', color: '#6c757d' }} 
-            />
-          </IonAvatar>
+          />
           <h1 style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-          }}>USER LOGIN</h1>
+            color:'violet'
+          }}>BLOXFRUIT LOGIN!</h1>
           <IonInput
             label="Email" 
             labelPlacement="floating" 
@@ -89,6 +92,7 @@ const Login: React.FC = () => {
             placeholder="Enter Email"
             value={email}
             onIonChange={e => setEmail(e.detail.value!)}
+            style={h1Style}
           />
           <IonInput style={{ marginTop:'10px' }}      
             fill="outline"
@@ -100,11 +104,11 @@ const Login: React.FC = () => {
             <IonInputPasswordToggle slot="end"></IonInputPasswordToggle>
           </IonInput>
         </div>
-        <IonButton onClick={doLogin} expand="full" shape='round'>
+        <IonButton onClick={doLogin} expand="full" shape='round' color='tertiary'>
           Login
         </IonButton>
 
-        <IonButton routerLink="/register" expand="full" fill="clear" shape='round'>
+        <IonButton routerLink="/register" expand="full" fill="clear" shape='round' color='tertiary'>
           Don't have an account? Register here
         </IonButton>
 
