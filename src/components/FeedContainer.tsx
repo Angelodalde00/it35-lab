@@ -3,6 +3,7 @@ import { IonApp, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton
 import { User } from '@supabase/supabase-js';
 import { supabase } from '../utils/supabaseClient';
 import { colorFill, pencil, trash } from 'ionicons/icons';
+import { heart } from 'ionicons/icons';
 
 interface Post {
   post_id: string;
@@ -12,7 +13,12 @@ interface Post {
   post_content: string;
   post_created_at: string;
   post_updated_at: string;
+  likes?: number;              // 👈 how many likes
+  likedByCurrentUser?: boolean; // 👈 if current user liked
 }
+
+
+
 
 const FeedContainer = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -23,6 +29,23 @@ const FeedContainer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [popoverState, setPopoverState] = useState<{ open: boolean; event: Event | null; postId: string | null }>({ open: false, event: null, postId: null });
+
+  const toggleLike = (post_id: string) => {
+    setPosts(prevPosts =>
+      prevPosts.map(post => {
+        if (post.post_id === post_id) {
+          const isLiked = post.likedByCurrentUser || false;
+          return {
+            ...post,
+            likes: isLiked ? (post.likes || 0) - 1 : (post.likes || 0) + 1,
+            likedByCurrentUser: !isLiked,
+          };
+        }
+        return post;
+      })
+    );
+  };
+  
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -127,14 +150,24 @@ const FeedContainer = () => {
                     <IonInput value={postContent} onIonChange={e => setPostContent(e.detail.value!)} placeholder="Write a post..." />
                 </IonCardContent>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '0.5rem' }}>
-                    <IonButton onClick={createPost}>Post</IonButton>
+                    <IonButton onClick={createPost} color='tertiary'>Post</IonButton>
                 </div>
             </IonCard>
 
               {posts.map(post => (
                 <IonCard key={post.post_id} style={{ marginTop: '2rem' }}>
                 <IonCardHeader>
-                  <IonRow>
+                  <IonRow  className="ion-justify-content-start ion-padding-start">
+                  <IonButton
+    fill="clear"
+    onClick={() => toggleLike(post.post_id)}
+    color={post.likedByCurrentUser ? 'danger' : 'medium'}
+  >
+    <IonIcon icon={heart} />
+    <IonText style={{ marginLeft: '6px' }}>
+      {post.likes || 0}
+    </IonText>
+  </IonButton>
                     <IonCol size="1.85">
                       <IonAvatar>
                         <img alt={post.username} src={post.avatar_url} />
@@ -150,14 +183,14 @@ const FeedContainer = () => {
                         fill="clear"
                         onClick={(e) => setPopoverState({ open: true, event: e.nativeEvent, postId: post.post_id })}
                       >
-                        <IonIcon color="secondary" icon={pencil} />
+                        <IonIcon color="tertiary" icon={pencil}  />
                       </IonButton>
                     </IonCol>
                   </IonRow>
                 </IonCardHeader>
               
                 <IonCardContent>
-                    <IonText style={{ color: 'black' }}>
+                    <IonText style={{ color: 'violet' }}>
                         <h1>{post.post_content}</h1>
                     </IonText>
                 </IonCardContent>
@@ -168,7 +201,7 @@ const FeedContainer = () => {
                   event={popoverState.event}
                   onDidDismiss={() => setPopoverState({ open: false, event: null, postId: null })}
                 >
-                  <IonButton fill="clear" onClick={() => { startEditingPost(post); setPopoverState({ open: false, event: null, postId: null }); }}>
+                  <IonButton fill="clear" onClick={() => { startEditingPost(post); setPopoverState({ open: false, event: null, postId: null }); }} color='tertiary'>
                     Edit
                   </IonButton>
                   <IonButton fill="clear" color="danger" onClick={() => { deletePost(post.post_id); setPopoverState({ open: false, event: null, postId: null }); }}>
