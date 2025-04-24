@@ -13,7 +13,7 @@ import {
 import { logoIonic } from 'ionicons/icons';
 import { useState, useEffect } from 'react';
 import { supabase } from '../utils/supabaseClient';
-import background from '../images/grav.jpg';
+import background from '../images/violet.jpg';
 import VoiceService from '../services/VoiceService';
 
 const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void }> = ({ message, isOpen, onClose }) => {
@@ -123,7 +123,7 @@ const Login: React.FC = () => {
           <IonAvatar style={{ width: '150px', height: '150px' }}>
             <IonIcon icon={logoIonic} style={{ fontSize: '120px', color: '#6c757d' }} />
           </IonAvatar>
-          <h1 style={{ color: 'violet' }}>BLOXFRUIT LOGIN!</h1>
+          <h1 style={{ color: 'violet' }}>LOGIN!</h1>
           <IonInput
             label="Email"
             labelPlacement="floating"
