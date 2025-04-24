@@ -6,6 +6,7 @@ import {
 } from '@ionic/react';
 import { supabase } from '../utils/supabaseClient';
 import { useHistory } from 'react-router-dom';
+import TwoFASetup from '../components/TwoFASetup';
 
 const EditAccount: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -318,6 +319,8 @@ const EditAccount: React.FC = () => {
             message={alertMessage}
             buttons={['OK']}
           />
+
+        <TwoFASetup/>
         </IonContent>
       </IonPage>
     );
