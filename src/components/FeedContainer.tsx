@@ -50,7 +50,7 @@ const FeedContainer = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const { data: authData } = await supabase.auth.getUser();
-      if (authData?.user?.email?.endsWith('@nbsc.edu.ph')) {
+      if (authData?.user?.email?.includes('@gmail.com')) {
         setUser(authData.user);
         const { data: userData, error } = await supabase
           .from('users')
@@ -161,7 +161,7 @@ const FeedContainer = () => {
                   <IonButton
     fill="clear"
     onClick={() => toggleLike(post.post_id)}
-    color={post.likedByCurrentUser ? 'danger' : 'medium'}
+    color={post.likedByCurrentUser ? 'tertiary' : 'medium'}
   >
     <IonIcon icon={heart} />
     <IonText style={{ marginLeft: '6px' }}>
@@ -174,8 +174,8 @@ const FeedContainer = () => {
                       </IonAvatar>
                     </IonCol>
                     <IonCol>
-                      <IonCardTitle style={{ marginTop: '10px' }}>{post.username}</IonCardTitle>
-                      <IonCardSubtitle>{new Date(post.post_created_at).toLocaleString()}</IonCardSubtitle>
+                    <IonCardTitle style={{ marginTop: '10px', color: 'darkviolet' }}> {post.username}</IonCardTitle>
+                    <IonCardSubtitle style={{ color: 'black' }}>{new Date(post.post_created_at).toLocaleString()}</IonCardSubtitle>
                     </IonCol>
                     <IonCol size="auto">
                       {/* Pencil icon triggers popover */}
@@ -219,7 +219,7 @@ const FeedContainer = () => {
         <IonModal isOpen={isModalOpen} onDidDismiss={() => setIsModalOpen(false)}>
           <IonHeader>
             <IonToolbar>
-              <IonTitle>Edit Post</IonTitle>
+              <IonTitle style={{ color: 'violet' }}>Edit Post</IonTitle>
             </IonToolbar>
           </IonHeader>
           <IonContent>
