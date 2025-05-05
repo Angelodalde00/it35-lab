@@ -13,7 +13,7 @@ import {
 import { logoIonic } from 'ionicons/icons';
 import { useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
-import background from '../images/grav.jpg';
+import background from '../images/pokemon.gif';
 
 const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void }> = ({ message, isOpen, onClose }) => {
   return (
