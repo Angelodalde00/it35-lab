@@ -132,8 +132,7 @@ const FeedContainer = () => {
   };
 
   return (
-    <IonApp>
-      <IonPage>
+    <>
         <IonHeader>
           <IonToolbar>
             <IonTitle>Posts</IonTitle>
@@ -238,8 +237,7 @@ const FeedContainer = () => {
           message="Post updated successfully!"
           buttons={['OK']}
         />
-      </IonPage>
-    </IonApp>
+      </>
   );
 };
 

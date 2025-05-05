@@ -83,7 +83,7 @@ const Login: React.FC = () => {
             alignItems: 'center',
             justifyContent: 'center',
             color:'violet'
-          }}>BLOXFRUIT LOGIN!</h1>
+          }}>𝓟𝓞𝓚𝓔𝓜𝓞 𝓛𝓞𝓖𝓘𝓝</h1>
           <IonInput
             label="Email" 
             labelPlacement="floating" 
@@ -108,7 +108,7 @@ const Login: React.FC = () => {
           Login
         </IonButton>
 
-        <IonButton routerLink="/register" expand="full" fill="clear" shape='round' color='tertiary'>
+        <IonButton routerLink="/register" expand="full" fill="clear" shape='round' color='dark'>
           Don't have an account? Register here
         </IonButton>
 
